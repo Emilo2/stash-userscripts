@@ -905,9 +905,6 @@
                 const sceneCodeNode = codeAndDateNodes[0];
                 const dateNode = codeAndDateNodes[1];
 
-                console.log(sceneCodeNode)
-                console.log(dateNode)
-
                 const entityNodes = searchResultItem.querySelectorAll('.entity-name');
                 let studioNode = null;
                 const performerNodes = [];
