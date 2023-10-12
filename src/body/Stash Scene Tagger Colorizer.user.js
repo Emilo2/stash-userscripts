@@ -164,6 +164,7 @@
             detailsNode,
             imageNode,
             titleNode,
+            sceneCodeNode,
             dateNode,
             studioNode,
             performerNodes: matchPerformerNodes,
@@ -171,6 +172,7 @@
         } = stash.parseSearchResultItem(searchResultItem);
 
         const includeTitle = document.getElementById('colorize-title').checked;
+        const includeSceneCode = document.getElementById('colorize-scenecode').checked;
         const includeDate = document.getElementById('colorize-date').checked;
         const includeStashID = document.getElementById('colorize-stashid').checked;
         const includeURL = document.getElementById('colorize-url').checked;
@@ -193,6 +195,13 @@
                 }
             }
 
+        }
+
+        if (includeSceneCode && sceneCodeNode) {
+            sceneCodeNode.style.color = COLORS.yellow;
+            if (data?.code) {
+                sceneCodeNode.style.color = sceneCodeNode.innerText === data.code ? COLORS.green : COLORS.red;
+            }
         }
 
         if (includeDate && dateNode) {
@@ -268,6 +277,12 @@
         <div class="form-check">
             <input type="checkbox" id="colorize-title" class="form-check-input" data-default="true">
             <label title="" for="colorize-title" class="form-check-label">Title</label>
+        </div>
+    </div>
+    <div class="align-items-center form-group col-md-6">
+        <div class="form-check">
+            <input type="checkbox" id="colorize-scenecode" class="form-check-input" data-default="true">
+            <label title="" for="colorize-scenecode" class="form-check-label">Scene Code</label>
         </div>
     </div>
     <div class="align-items-center form-group col-md-6">
