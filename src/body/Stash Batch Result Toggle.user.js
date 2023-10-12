@@ -60,6 +60,7 @@
             detailsNode,
             imageNode,
             titleNode,
+            sceneCodeNode,
             dateNode,
             studioNode,
             performerNodes: matchPerformerNodes,
@@ -70,6 +71,7 @@
         const performerMatchNodes = matches.filter(o => o.matchType === 'performer').map(o => o.matchNode);
 
         const includeTitle = document.getElementById('result-toggle-title').checked;
+        const includeSceneCode = document.getElementById('result-toggle-scenecode').checked;
         const includeDate = document.getElementById('result-toggle-date').checked;
         const includeCover = document.getElementById('result-toggle-cover').checked;
         const includeStashID = document.getElementById('result-toggle-stashid').checked;
@@ -81,6 +83,7 @@
         let options = [];
 
         options.push(['title', includeTitle, titleNode, resolveToggle(titleNode)]);
+        options.push(['scenecode', includeSceneCode, sceneCodeNode, resolveToggle(sceneCodeNode)]);
         options.push(['date', includeDate, dateNode, resolveToggle(dateNode)]);
         options.push(['cover', includeCover, imageNode, resolveToggle(imageNode)]);
         options.push(['stashid', includeStashID, remoteUrlNode, resolveToggle(remoteUrlNode)]);
@@ -243,6 +246,12 @@
         <div class="form-check">
             <input type="checkbox" id="result-toggle-title" class="form-check-input" data-default="true">
             <label title="" for="result-toggle-title" class="form-check-label">Title</label>
+        </div>
+    </div>
+    <div class="align-items-center form-group col-md-6">
+        <div class="form-check">
+            <input type="checkbox" id="result-toggle-scenecode" class="form-check-input" data-default="true">
+            <label title="" for="result-toggle-scenecode" class="form-check-label">Scene Code</label>
         </div>
     </div>
     <div class="align-items-center form-group col-md-6">
