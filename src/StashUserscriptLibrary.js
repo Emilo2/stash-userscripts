@@ -889,7 +889,7 @@
                 let urlNode = null;
                 let detailsNode = null;
                 for (const sceneDetailNode of sceneDetailNodes) {
-                    if (remoteData?.url === sceneDetailNode.innerText) {
+                    if (remoteData?.urls[0] === sceneDetailNode.innerText) {
                         urlNode = sceneDetailNode;
                     }
                     else if (remoteData?.details === sceneDetailNode.textContent) {
@@ -901,7 +901,12 @@
 
                 const metadataNode = searchResultItem.querySelector('.scene-metadata');
                 const titleNode = metadataNode.querySelector('h4 .optional-field .optional-field-content');
-                const dateNode = metadataNode.querySelector('h5 .optional-field .optional-field-content');
+                const codeAndDateNodes = metadataNode.querySelectorAll('h5 .optional-field .optional-field-content');
+                const sceneCodeNode = codeAndDateNodes[0];
+                const dateNode = codeAndDateNodes[1];
+
+                console.log(sceneCodeNode)
+                console.log(dateNode)
 
                 const entityNodes = searchResultItem.querySelectorAll('.entity-name');
                 let studioNode = null;
@@ -957,6 +962,7 @@
                     detailsNode,
                     imageNode,
                     titleNode,
+                    sceneCodeNode,
                     dateNode,
                     studioNode,
                     performerNodes,
